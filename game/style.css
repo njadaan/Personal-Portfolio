@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overscroll-behavior: none;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -40,20 +45,49 @@ main {
   text-transform: uppercase;
 }
 
-#game-container canvas{
+#game-container {
+  width: 100%;
   margin-top: 1.5rem;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#game-container canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0;
   border: 4px solid #818cf8;
   border-radius: 1rem;
   background: #0f172a;
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 35%);
+  touch-action: none;
 }
-
-
 
 .instructions {
   padding: 1rem;
   border-radius: 0.8rem;
   background: rgb(15 23 42 / 75%);
   text-align: center;
+  line-height: 1.6;
 }
 
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.65rem;
+  }
+
+  .intro {
+    text-align: center;
+  }
+
+  .intro h1 {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+  }
+
+  .instructions {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
